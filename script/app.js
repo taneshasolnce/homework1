@@ -1,5 +1,6 @@
 'use strict'
 let hello = 'hello';
+let say = 'say';
 
 /* const text = `введите текст`;
 alert (`{введенный текст}`)
