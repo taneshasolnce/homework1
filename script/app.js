@@ -1,4 +1,5 @@
 'use strict'
+let hello = 'hello';
 
 /* const text = `введите текст`;
 alert (`{введенный текст}`)
