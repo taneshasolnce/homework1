@@ -1,0 +1,24 @@
+{
+  "name": "js1",
+  "version": "1.0.0",
+  "description": "��\r\u0000 \u0000#\u0000 \u0000h\u0000o\u0000m\u0000e\u0000w\u0000o\u0000r\u0000k\u00001\u0000\r\u0000 \u0000 \u0000\r\u0000 \u0000\r\u0000 \u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taneshasolnce/homework1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taneshasolnce/homework1/issues"
+  },
+  "homepage": "https://github.com/taneshasolnce/homework1#readme",
+  "dependencies": {
+    "calendar": "^0.1.1",
+    "calendar.js": "^1.0.6",
+    "js": "^0.1.0"
+  }
+}
