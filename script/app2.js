@@ -1,9 +1,87 @@
+const main = document.getElementById("main");
+const left = document.getElementById("left");
+const right = document.getElementById("right");
+const sliderImage = document.querySelector(".slider-screen");
+function slider() {
+  fetch("https://my-json-server.typicode.com/DimaVnuk/db-bookstore/books")
+    .then((res) => res.json())
+    .then((data) => {
+      const arr = data.map((i) => i.imageUrl);
+      let count = 0;
+      sliderImage.innerHTML = `<img src = ${arr[count]}
+      >';
+      right.onclick = function () {
+        count++
+        const arr = data.map((i) => i.imageUrl);
+      };
+    });
+}
+slider();
+//https://my-json-server.typicode.com/DimaVnuk/db-bookstore/books
+/* fetch("https://my-json-server.typicode.com/DimaVnuk/db-bookstore/books")
+  .then((res) => res.json())
+  .then((data) => console.log(data))
+  .catch((err) => console.log(err.message)); */
+//main.innerHTML = "<h1>hello</h1><button>add</button>";можно сразу вставлять текст, кнопку
+function getBooks(name, price, image) {
+  return `<div class="card">
+  <p>${name}</p>
+  <p>${price}</p>
+  <div>
+    <img
+      width="250"
+      src=${image}
+      />
+  </div>
+</div>`;
+}
+function getData(data) {
+  main.innerHTML = data
+    .map((i) => {
+      return getBooks(i.name, i.price, i.imageUrl);
+    })
+    .join("") // чтобы было без пробелов
+    .toString(); // обязательно перейти в строку нужно
+}
+function books() {
+  fetch("https://my-json-server.typicode.com/DimaVnuk/db-bookstore/books")
+    .then((res) => res.json())
+    .then((data) => getData(data))
+    .catch((err) => console.log(err.message));
+}
+books();
+
+/* const inp = document.getElementById("inp");
+function handleFocus() {
+  //находимся в фокусе
+  console.log("focus");
+}
+inp.addEventListener("focus", handleFocus);
+function handleBlur() {
+  // переход между инпутами
+  console.log("blur");
+}
+inp.addEventListener("blur", handleBlur);
+function handleChange(event) {
+  console.log(e.target.value); //позволяет выводить в консоль данные с инпута
+}
+inp.addEventListener("input", handleChange);// собирает все данные и отображает, когда вышли из инпута
+const youtube = document.getElementById("youtube");
+function handleYoutube(e) {
+  e.preventDefault(); // отменяет действие по-умолчанию
+}
+youtube.addEventListener("click", handleYoutube); */
+/* const main = document.getElementById("main");
+setInterval(() => {
+  main.classList.toggle("hide"); это обязательно(возвращ или прячет)
+}, 500); */
+
 /* setTimeout(() => {
   console.log(1);
-}, 3000);
+}, 3000); позволяет выполнить что-то через заданное время 3 сек
 setInterval(() => {
   console.log(1);
-}, 1000); */
+}, 1000);  счетчик для часов*/
 
 /* const main = document.getElementById("main");
 const btn = document.getElementById("btn");

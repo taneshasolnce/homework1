@@ -20,22 +20,39 @@ if (age > 17) {
 } */
 
 // 4 задание
-const divName = confirm(`Хотите ввести название блока?`);
+/* const divName = confirm("Хотите ввести название блока?");
 if (false) {
-  confirm(`элементу не присвоен класс`);
+  confirm("элементу не присвоен класс");
 } else {
-  prompt(`Название блока`);
+  prompt(divName);
 }
-const element = confirm(`Хотите ввести название элемента?);
+const element = confirm("Хотите ввести название элемента?");
 if (false) {
-  console.log(`Название блока`);
+  console.log(divName);
 } else {
-  prompt(`название элемента`);
-} 
- const modif = confirm(`Хотите ввести название модификатора?`);
+  prompt(element);
+}
+const modif = confirm("Хотите ввести название модификатора?");
 if (true) {
-  prompt(`название элемента`);
-  console.log(`${divName + element + modif}`);
+  prompt(element);
+  console.log(`${divName} + ${element} + ${modif}`);
 } else {
   console.log(`${divName + element}`);
-}
+} */
+// 5 задание
+/* const num1 = +prompt("Введите первое число, 5");
+const num2 = +prompt("Введите второе число, 4");
+const num3 = prompt("Выберите нужную арифметическую операцию, + - / *");
+if (num3 === "+") {
+  alert(num1 + num2);
+  console.log(num1 + num2);
+} else if (num3 === "-") {
+  alert(num1 - num2);
+  console.log(num1 - num2);
+} else if (num3 === "/") {
+  alert(num1 / num2);
+  console.log(num1 / num2);
+} else if (num3 === "*") {
+  alert(num1 * num2);
+  console.log(num1 * num2);
+} */
