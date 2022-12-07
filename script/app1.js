@@ -24,11 +24,11 @@ const divName = confirm(`Хотите ввести название блока?`
 if (false) {
   confirm(`элементу не присвоен класс`);
 } else {
-  prompt(`название блока`);
+  prompt(`Название блока`);
 }
 const element = confirm(`Хотите ввести название элемента?);
 if (false) {
-  console.log(`название блока`);
+  console.log(`Название блока`);
 } else {
   prompt(`название элемента`);
 } 
