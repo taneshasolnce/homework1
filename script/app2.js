@@ -12,7 +12,11 @@ function slider() {
       >';
       right.onclick = function () {
         count++
-        const arr = data.map((i) => i.imageUrl);
+        sliderImage.innerHTML = `<img src = ${arr[count]}
+      >';
+        if (count === arr.lenght - 1){
+          count = 0;
+        }
       };
     });
 }
