@@ -2,20 +2,49 @@ const main = document.getElementById("main");
 const left = document.getElementById("left");
 const right = document.getElementById("right");
 const sliderImage = document.querySelector(".slider-screen");
+const search = document.getElementById("search");
+function handleSearch(e) {
+  fetch("https://my-json-server.typicode.com/DimaVnuk/db-bookstore/books")
+    .then((res) => res.json())
+    .then((data) => {
+      main.innerHTML = data
+        .filter((i) =>
+          i.name.toUpperCase().includes(e.target.value.toUpperCase())
+        )
+        .map((i) => getBooks(i.name, i.price, i.imageUrl))
+        .join("");
+    });
+}
+search.addEventListener("input", handleSearch);
 function slider() {
   fetch("https://my-json-server.typicode.com/DimaVnuk/db-bookstore/books")
     .then((res) => res.json())
     .then((data) => {
       const arr = data.map((i) => i.imageUrl);
       let count = 0;
-      sliderImage.innerHTML = `<img src = ${arr[count]}
-      >';
+      sliderImage.innerHTML = `<img src = ${arr[count]}>`;
       right.onclick = function () {
-        count++
-        sliderImage.innerHTML = `<img src = ${arr[count]}
-      >';
-        if (count === arr.lenght - 1){
+        count++;
+        sliderImage.innerHTML = `<img src = ${arr[count]}>`;
+        /* if (count === arr.lenght - 1) {
           count = 0;
+        } */
+        if (count === 9) {
+          right.disabled = true;
+        }
+
+        if (count > 0) {
+          right.disabled = false;
+        }
+      };
+      left.onclick = function () {
+        count--;
+        sliderImage.innerHTML = `<img src=${arr[count]}>`;
+        if (count === 9) {
+          left.disabled = true;
+        }
+        if (count === 0) {
+          left.disabled = false;
         }
       };
     });
@@ -27,8 +56,15 @@ slider();
   .then((data) => console.log(data))
   .catch((err) => console.log(err.message)); */
 //main.innerHTML = "<h1>hello</h1><button>add</button>";можно сразу вставлять текст, кнопку
-function getBooks(name, price, image) {
-  return `<div class="card">
+const favourite = [];
+function onAdd(id) {
+  const element = document.getElementById(id);
+  favourite.push(element.innerHTML);
+  console.log(favourite);
+}
+
+function getBooks(name, price, image, id) {
+  return `<div class="card" id=${id}>
   <p>${name}</p>
   <p>${price}</p>
   <div>
@@ -37,12 +73,15 @@ function getBooks(name, price, image) {
       src=${image}
       />
   </div>
+  <div>
+  <button onclick="onAdd(${id})">add</button>
+  </div>
 </div>`;
 }
 function getData(data) {
   main.innerHTML = data
     .map((i) => {
-      return getBooks(i.name, i.price, i.imageUrl);
+      return getBooks(i.name, i.price, i.imageUrl, i.id);
     })
     .join("") // чтобы было без пробелов
     .toString(); // обязательно перейти в строку нужно

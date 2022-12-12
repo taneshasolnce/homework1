@@ -35,9 +35,9 @@ if (false) {
 const modif = confirm("Хотите ввести название модификатора?");
 if (true) {
   prompt(element);
-  console.log(`${divName} + ${element} + ${modif}`);
+  console.log(divName + element + modif);
 } else {
-  console.log(`${divName + element}`);
+  console.log(divName + element);
 } */
 // 5 задание
 /* const num1 = +prompt("Введите первое число, 5");
