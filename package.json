@@ -19,6 +19,7 @@
   "dependencies": {
     "calendar": "^0.1.1",
     "calendar.js": "^1.0.6",
-    "js": "^0.1.0"
+    "js": "^0.1.0",
+    "toastify-js": "^1.12.0"
   }
 }

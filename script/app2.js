@@ -3,6 +3,15 @@ const left = document.getElementById("left");
 const right = document.getElementById("right");
 const sliderImage = document.querySelector(".slider-screen");
 const search = document.getElementById("search");
+const home = document.getElementById("home");
+const favouritePage = document.getElementById("favourite");
+const timer = document.getElementById("timer");
+//import Toastify from "toastify-js";
+setInterval(() => {
+  timer.innerHTML = new Date().toLocaleTimeString("en-GB");
+}, 1000);
+timer.innerHTML = new Date().toLocaleTimeString("en-GB");
+
 function handleSearch(e) {
   fetch("https://my-json-server.typicode.com/DimaVnuk/db-bookstore/books")
     .then((res) => res.json())
@@ -57,14 +66,31 @@ slider();
   .catch((err) => console.log(err.message)); */
 //main.innerHTML = "<h1>hello</h1><button>add</button>";можно сразу вставлять текст, кнопку
 const favourite = [];
+
 function onAdd(id) {
   const element = document.getElementById(id);
   favourite.push(element.innerHTML);
-  console.log(favourite);
+  localStorage.setItem("example", JSON.stringify(favourite));
+}
+home.addEventListener("click", books);
+main.innerHTML = console.log(localStorage.getItem("example"));
+function handleFavourite() {
+  main.innerHTML = JSON.parse(localStorage.getItem("example", favourite));
+  favourite.map((i) => `<div class="card">${i}</div>`);
+}
+
+favouritePage.addEventListener("click", handleFavourite);
+function customHover(id) {
+  let card = document.getElementById(id);
+  card.style.backgroundColor = "red";
+}
+function customHoverOut(id) {
+  let card = document.getElementById(id);
+  card.style.backgroundColor = "";
 }
 
 function getBooks(name, price, image, id) {
-  return `<div class="card" id=${id}>
+  return `<div onmouseover="customHover(${id})" onmouseout="customHoverOut(${id})" class="card" id=${id}>
   <p>${name}</p>
   <p>${price}</p>
   <div>
